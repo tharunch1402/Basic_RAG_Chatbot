@@ -4,15 +4,14 @@ from rag.retriever import get_retriever
 
 
 def format_docs(docs):
-    '''Join the retrieved chunks into one text, with page numbers'''
+    """Join the retrieved chunks into one text, with page numbers"""
     return "\n\n".join(
-        f"[Page {doc.metadata.get('page', 0) + 1}]\n{doc.page_content}"
-        for doc in docs
-        )
+        f"[Page {doc.metadata.get('page', 0) + 1}]\n{doc.page_content}" for doc in docs
+    )
 
 
 def ask_question(question: str):
-    '''Question → find chunks → send to LLM → answer'''
+    """Question → find chunks → send to LLM → answer"""
     # 1. Retrieve the most relevant chunks
     retriever = get_retriever()
     docs = retriever.invoke(question)
@@ -25,5 +24,5 @@ def ask_question(question: str):
     response = get_llm().invoke(messages)
 
     # 4. Return the answer and the pages it came from
-    pages = sorted({doc.metadata.get('page', 0) + 1 for doc in docs})
+    pages = sorted({doc.metadata.get("page", 0) + 1 for doc in docs})
     return {"answer": response.content, "pages": pages}

@@ -4,12 +4,13 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
+
 class Settings:
     OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 
     # Models
-    EMBEDDING_MODEL = 'text-embedding-3-small'
-    LLM_MODEL = 'gpt-4o-mini'
+    EMBEDDING_MODEL = "text-embedding-3-small"
+    LLM_MODEL = "gpt-4o-mini"
 
     # Chunking
     CHUNK_SIZE = 500
@@ -24,4 +25,6 @@ class Settings:
 
     # Embedding size
     EMBEDDING_SIZE = 1536
+
+
 settings = Settings()
