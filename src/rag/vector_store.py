@@ -1,8 +1,10 @@
-from rag.config import settings
-from rag.embeddings import embeddings_model
-from langchain_chroma import Chroma
 import shutil
 from pathlib import Path
+
+from langchain_chroma import Chroma
+
+from rag.config import settings
+from rag.embeddings import embeddings_model
 
 
 def vector_stores(chunks):

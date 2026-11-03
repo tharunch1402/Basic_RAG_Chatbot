@@ -1,5 +1,7 @@
 from langchain_text_splitters import RecursiveCharacterTextSplitter
+
 from rag.config import settings
+
 
 def text_splitter(documents):
     """

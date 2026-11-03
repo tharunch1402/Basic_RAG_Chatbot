@@ -1,5 +1,5 @@
-from rag.vector_store import load_vectorstore
 from rag.config import settings
+from rag.vector_store import load_vectorstore
 
 
 def get_retriever():

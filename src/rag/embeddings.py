@@ -1,5 +1,7 @@
 from langchain_openai import OpenAIEmbeddings
+
 from rag.config import settings
+
 
 def embeddings_model():
     ''' Creating the embedding model '''

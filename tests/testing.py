@@ -1,8 +1,9 @@
+import logging
+
 from rag.loader import load_folder
 from rag.splitter import text_splitter
 from rag.vector_store import vector_stores
 
-import logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s | %(levelname)s | %(message)s')
 
 def main():
