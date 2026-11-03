@@ -1,5 +1,7 @@
 from langchain_text_splitters import RecursiveCharacterTextSplitter
+
 from rag.config import settings
+
 
 def text_splitter(documents):
     """
@@ -14,8 +16,6 @@ def text_splitter(documents):
     text_splitter = RecursiveCharacterTextSplitter(
         chunk_size=settings.CHUNK_SIZE,
         chunk_overlap=settings.CHUNK_OVERLAP,
-        length_function=len
+        length_function=len,
     )
     return text_splitter.split_documents(documents)
-
-    
