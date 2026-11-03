@@ -1,4 +1,5 @@
 from langchain_openai import OpenAIEmbeddings
+
 from rag.config import settings
 
 

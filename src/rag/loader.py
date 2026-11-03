@@ -1,7 +1,13 @@
+# 1. Python's built-in libraries (come with Python)
 import logging
 from pathlib import Path
 
+# 2. Third-party libraries (installed with uv add), alphabetical
 from langchain_community.document_loaders import PyPDFLoader
+from pypdf.errors import PdfReadError
+
+# 3. Your own code
+from rag.config import settings
 
 logger = logging.getLogger(__name__)
 
@@ -33,9 +39,9 @@ def load_folder(folder_path: str):
         try:
             documents = load_documents(str(pdf))
             all_documents.extend(documents)
-            logger.info(f"Loaded {pdf.name} ({len(documents)} pages)")
+            logger.info(f'Loaded {pdf.name} ({len(documents)} pages)')
         except Exception as error:
-            logger.error(f"Could not load {pdf.name}: {error}")
+            logger.error(f'Could not load {pdf.name}: {error}')
 
     if not all_documents:
         raise ValueError(f"No PDFs could be loaded from {folder}")
