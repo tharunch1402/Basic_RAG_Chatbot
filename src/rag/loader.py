@@ -1,3 +1,4 @@
+# Loads PDF files for the RAG pipeline
 from langchain_community.document_loaders import PyPDFLoader
 from pathlib import Path
 
