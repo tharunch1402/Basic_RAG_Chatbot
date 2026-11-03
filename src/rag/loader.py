@@ -39,9 +39,9 @@ def load_folder(folder_path: str):
         try:
             documents = load_documents(str(pdf))
             all_documents.extend(documents)
-            logger.info(f"Loaded {pdf.name} ({len(documents)} pages)")
-        except (PdfReadError, OSError, ValueError) as error:
-            logger.error(f"Could not load {pdf.name}: {error}")
+            logger.info(f'Loaded {pdf.name} ({len(documents)} pages)')
+        except Exception as error:
+            logger.error(f'Could not load {pdf.name}: {error}')
 
     if not all_documents:
         raise ValueError(f"No PDFs could be loaded from {folder}")
